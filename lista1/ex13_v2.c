@@ -1,0 +1,13 @@
+#include <stdio.h> 
+#include <stdlib.h>  
+#include <math.h>
+int main () {
+	float x, y;
+
+	printf ("\n Digite dois numeros: "); 
+	scanf ("%f %f", &x, &y); 
+	printf ( "\n O produto de %f e %f eh %4.3f ", x, y, x*y);
+	printf ( "\n O quociente de %f e %f eh %4.3f ", x, y, x/y);   
+	system ("Pause"); 
+} 
+ 
