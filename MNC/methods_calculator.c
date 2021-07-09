@@ -1,9 +1,9 @@
-#include <bits.h>
+// #include <bits.h>
 #include <stdio.h>
 #include <math.h>
 
 //Caio Castilho Donato Regal
-//Eduardo Stecca
+//Angelo Monte Serrat Bonini
 
 
 //Variaveis
@@ -12,7 +12,7 @@ float MatrizL[10][10],MatrizU[10][10];// matrizes L e U
 float X[10]= {0},Y[10]= {0},XI[10][10]= {0},YI[10][10]= {0},c;
 int det,opcao,opcaoI;// variavies de controle do sistema
 int i,j,k;// variaveis de looping U
-int I,J,K;// variaveis de controle operaçoes
+int I,J,K;// variaveis de controle operaï¿½oes
 int il,jl=0,kl;//variavies de looping para calcular L
 int OrdemMatriz;
 int naux,jaux;
@@ -60,7 +60,10 @@ float Determinante (int OrdemMatriz, float Matriz[10][10]) {
 
 	return D;
 }
-
+/**
+ * @brief problemas
+ * 
+ */
 void SistemaTriangularSuperior (int OrdemMatriz,float MatrizU[][10],float Y[],float X[]) {
 	for(i=OrdemMatriz-1; i>=0; i--) {
 		X[i]= Y[i];
@@ -526,7 +529,7 @@ int main () {
 	printf("\n  1 - Determinante ");
 	printf("\n  2 - Sistema Triangular inferior ");
 	printf("\n  3 - Sistema Triangular superior ");
-	printf("\n  4 - Decomposição L.U ");
+	printf("\n  4 - Decomposicao L.U ");
 	printf("\n  5 - Cholesky ");
 	printf("\n  6 - Gauss Compacto ");
 	printf("\n  7 - Gauss Jordan ");
@@ -603,7 +606,7 @@ int main () {
 				scanf("%f",&VetorIndependente[i]);
 				MatrizG[i+1][j+1]=VetorIndependente[i];
 			}
-			printf("\nDigite o maximo de iterações: \n ");
+			printf("\nDigite o maximo de iteraï¿½ï¿½es: \n ");
 			scanf("%d",&MaxIteracoes);
 			printf("Digite a aproximacao inicial:");
 			for(i=0; i<OrdemMatriz; i++) {
