@@ -1,5 +1,9 @@
 #include "header.h"
+
 #include <math.h>
+
+
+
 
 //a[][]: coeficientes
 //b[]  : termos independentes
