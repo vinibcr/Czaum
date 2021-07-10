@@ -1,5 +1,6 @@
 #include "header.h"
 
+
 //a[][]: coeficientes
 //b[]  : termos independentes
 //x[]  : solução
