@@ -3,6 +3,7 @@
 #include <math.h>
 
 int main()
+
 {
     int count, t, limit;
     float temp, error, a, sum = 0;
