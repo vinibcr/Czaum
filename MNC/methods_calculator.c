@@ -126,7 +126,7 @@ void DecomposicaoLU (int OrdemMatriz, float Matriz[][10],float VetorIndependente
 					}
 					MatrizL[i][jl] = (Matriz[i][jl] - SomaL) / MatrizU[jl][jl] ;  // lij = ( aij - somatoria Lik * ukj)/ ujj
 					MatrizU[i][jl] = 0; // criando os 0 da matriz U
-					SomaL=0;// zera somatorio L
+					SomaL=0;
 					//}
 				}
 			}
@@ -626,4 +626,3 @@ int main () {
 
 
 }
-
