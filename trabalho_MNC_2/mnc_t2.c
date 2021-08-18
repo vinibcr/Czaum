@@ -305,26 +305,20 @@ double tresOitavosSimpson(int n, double a, double b, funcao f) {
 
 int menu() {
    int op;
-   printf("   Cálculo de sistemas lineares   \n");
-   printf("         e matriz inversa         \n");
+   printf("   Interpolação Polinomial  \n");
+   printf("         Ajuste de Curvas e Integração Numérica        \n");
    printf("..................................\n\n");
-   printf("| Determinante:\n");
-   printf("  01 › Laplace\n\n");
-   printf("| Sistema linear:\n");
-   printf("  02 › Triangular Inferior\n");
-   printf("  03 › Triangular Superior\n\n");
-   printf("     Métodos diretos:\n");
-   printf("     04 › Decomposição LU\n");
-   printf("     05 › Cholesky\n");
-   printf("     06 › Gauss Compacto\n");
-   printf("     07 › Gauss Jordan\n\n");
-   printf("     Métodos iterativos:\n");
-   printf("     08 › Jacobi\n");
-   printf("     09 › Gauss Seidel\n\n");
-   printf("| Matriz:\n");
-   printf("  10 › Inversa\n\n");
+   printf("  01 › Rotina de Newton \n\n");
+   printf("  02 › Rotina NewtonGregory\n");
+   printf("  03 › Rotina CoefDeterminação\n\n");
+   printf("     04 › Ajuste de Reta\n");
+   printf("     05 › Ajuste de Polinômio\n");
+   printf("     06 › Ajuste Exponencial\n");
+   printf("     07 › Rotina Trapézio\n\n");
+   printf("     08 › Um Terço de Simpson\n");
+   printf("     09 › TRes Oitvaos de Simpson\n\n");
    do {
-      printf("Resp.: ");
+      printf("Resposta.: ");
       scanf("%d", &op);
    } while (op < 1 || op > 10);
    printf("\n");
