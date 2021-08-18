@@ -302,13 +302,116 @@ double tresOitavosSimpson(int n, double a, double b, funcao f) {
    return res;
 }
 
-//! FALTA MENU
+
+int menu() {
+   int op;
+   printf("   Cálculo de sistemas lineares   \n");
+   printf("         e matriz inversa         \n");
+   printf("..................................\n\n");
+   printf("| Determinante:\n");
+   printf("  01 › Laplace\n\n");
+   printf("| Sistema linear:\n");
+   printf("  02 › Triangular Inferior\n");
+   printf("  03 › Triangular Superior\n\n");
+   printf("     Métodos diretos:\n");
+   printf("     04 › Decomposição LU\n");
+   printf("     05 › Cholesky\n");
+   printf("     06 › Gauss Compacto\n");
+   printf("     07 › Gauss Jordan\n\n");
+   printf("     Métodos iterativos:\n");
+   printf("     08 › Jacobi\n");
+   printf("     09 › Gauss Seidel\n\n");
+   printf("| Matriz:\n");
+   printf("  10 › Inversa\n\n");
+   do {
+      printf("Resp.: ");
+      scanf("%d", &op);
+   } while (op < 1 || op > 10);
+   printf("\n");
+   return op;
+}
+
 int main() {
-   funcao f1, f2, f3;
-   iniciaFuncao(&f1, 0, 0, 1, 0);
-   iniciaFuncao(&f2, 1, 0, 0, 1);
+    funcao f1, f2, f3;
+  int op, n, maxIte, ite;
+   double a[MAX][MAX], i[MAX][MAX], x[MAX], x0[MAX], b[MAX], e;
+   char r;
+   bool ok;
 
-   printf("%lf\n", tresOitavosSimpson(7, -1, 1, f2));
+   do {
+      system("clear");
+      op = menu();
 
+      printf("Ordem da matriz: ");
+      scanf("%d", &n);
+      printf("\nCoeficientes da matriz %dx%d:\n", n, n);
+      leMatriz(n, a);
+
+      if (op == 1)
+         printf("\nA solução é: %.4lf\n", determinante(n, a));
+      else if (op >= 2 && op <= 7) {
+         printf("\nTermos independentes:\n");
+         leVetor(n, b);
+
+         switch (op) {
+         case 2:
+            ok = sistemaTriangularInferior(n, a, b, x);
+            break;
+         case 3:
+            ok = sistemaTriangularSuperior(n, a, b, x);
+            break;
+         case 4:
+            ok = decomposicaoLU(n, a, b, x);
+            break;
+         case 5:
+            ok = cholesky(n, a, b, x);
+            break;
+         case 6:
+            ok = gaussCompacto(n, a, b, x);
+            break;
+         case 7:
+            ok = gaussJordan(n, a, b, x);
+            break;
+         }
+         if (ok) {
+            printf("\nO vetor solução é:\n");
+            impVetor(n, x);
+         } else
+            printf("\nO método não converge!\n");
+      } else if (op == 8 || op == 9) {
+         printf("\nTermos independentes:\n");
+         leVetor(n, b);
+         printf("\nAproximação inicial para o vetor solução:\n");
+         leVetor(n, x0);
+         printf("\nErro: ");
+         scanf("%lf", &e);
+         printf("\nNúmero máximo de iterações: ");
+         scanf("%d", &maxIte);
+
+         if (op == 8)
+            ok = jacobi(n, a, b, e, x0, maxIte, x, &ite);
+         else
+            ok = gaussSeidel(n, a, b, e, x0, maxIte, x, &ite);
+
+         if (ok) {
+            printf("\nO vetor solução é:\n");
+            impVetor(n, x);
+         } else
+            printf("\nO método não converge!\n");
+      } else {
+         ok = matrizInversa(n, a, i);
+         if (ok) {
+            printf("A matriz solução é:\n");
+            impMatriz(n, i);
+         } else
+            printf("\nO método não converge!\n");
+      }
+
+      do {
+         printf("\nRetornar ao menu [s/n]? ");
+         fflush(stdin);
+         scanf(" %c", &r);
+      } while (r != 'n' && r != 's');
+   } while (r == 's');
    return 0;
 }
