@@ -228,8 +228,6 @@ int main() {
    double a[MAX], y[MAX], coefDet;
 
    ajusteExponencial(n, tabela, a, y, &coefDet);
-   // impVetor(3, a);
-   // impVetor(n, y);
-   // printf("%lf\n", coefDet);
+
    return 0;
 }
