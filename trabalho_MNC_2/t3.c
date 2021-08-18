@@ -214,7 +214,7 @@ void ajusteExponencial(int n, double tabela[][MAX], double *a, double *b, double
       tabela[LIN_Y][j] = log(tabela[LIN_Y][j]);
 
    ajusteReta(n, tabela, &a0, &a1, yAjustado, &(*coefDet));
-   // printf("a0: %lf\na1: %lf\n", a0, a1);
+   printf("a0: %lf\na1: %lf\n", a0, a1);
    *a = pow(M_E, a0);
    *b = pow(M_E, a1);
 }
@@ -222,14 +222,14 @@ void ajusteExponencial(int n, double tabela[][MAX], double *a, double *b, double
 //! FALTA MENU
 int main() {
    double tabela[2][MAX] = {
-       {0, 1, 2, 4, 5},
-       {4, 1, -1, 1, 2}};
-   int n = 5;
+       {1, 2.5, 3, 4.2, 5, 6.5},
+       {35, 55, 82, 120, 170, 250}};
+   int n = 6;
    double a[MAX], y[MAX], coefDet;
 
-   ajustePolinomial(2, n, tabela, a, y, &coefDet);
-   impVetor(3, a);
-   impVetor(n, y);
-   printf("%lf\n", coefDet);
+   ajusteExponencial(n, tabela, a, y, &coefDet);
+   // impVetor(3, a);
+   // impVetor(n, y);
+   // printf("%lf\n", coefDet);
    return 0;
 }
