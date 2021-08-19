@@ -147,7 +147,6 @@ bool decomposicaoLU(int n, double a[][MAX], double b[], double x[])
    return true;
 }
 
-
 int fat(int n)
 {
    int fat = 1;
@@ -366,7 +365,7 @@ int main()
 {
    funcao f1, f2, f3;
    int op, n, ;
-   double a[MAX][MAX], tabela[][MAX], a[],;
+   double a[MAX][MAX], tabela[][MAX], a[], ;
    double x, y[];
    double l, f, h;
    char r;
@@ -397,24 +396,21 @@ int main()
          ok = ajusteReta(n, tabela, *a0, *a1, y, *coefDet);
          break;
       case 5:
-         ok = ajustePolinomial(m,n, tabela, a, y, *coefDet);
+         ok = ajustePolinomial(m, n, tabela, a, y, *coefDet);
          break;
       case 6:
          ok = ajusteExponencial(n, tabela, *a, *b, y[], *coefDet);
          break;
       case 7:
-         ok = trapezio(n,l , f, f1);
+         ok = trapezio(n, l, f, f1);
          break;
-           case 8:
+      case 8:
          ok = umTercoSimpson(n, l, f, f2);
          break;
-           case 9:
+      case 9:
          ok = tresOitavosSimpson(n, l, f, h, f3);
          break;
-
       }
-
-
 
       do
       {
