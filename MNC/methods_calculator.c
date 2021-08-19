@@ -3,7 +3,7 @@
 #include <math.h>
 
 //Caio Castilho Donato Regal
-//Angelo Monte Serrat Bonini
+
 
 
 //Variaveis
